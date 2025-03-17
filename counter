@@ -1,0 +1,46 @@
+`timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer: 
+// 
+// Create Date: 12.03.2025 16:04:06
+// Design Name: 
+// Module Name: counter
+// Project Name: 
+// Target Devices: 
+// Tool Versions: 
+// Description: 
+// 
+// Dependencies: 
+// 
+// Revision:
+// Revision 0.01 - File Created
+// Additional Comments:
+// 
+//////////////////////////////////////////////////////////////////////////////////
+
+
+module counter(
+    input logic en,
+    input logic clk,
+    input logic rst,
+    
+    output logic [3:0] cnt
+    );
+    
+    always_ff @(posedge clk) begin 
+    if (rst == 1'b1)
+        cnt <= 4'd0;// цифры в записи числа: 
+                    // b - двоичные
+                    // d - десятичные
+                    // h - шестнадцатеричные
+                    // o - восьмеричные
+    else
+        if(en)
+            cnt <= cnt + 1;// при указании только числа –
+                           // по умолчанию десятичные цифры
+                           // и неизвестное количество битов.
+                           // плохая практика
+    end
+endmodule
+
