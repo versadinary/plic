@@ -1,0 +1,29 @@
+module shift_reg(
+
+    input  logic clk,
+    input  logic en,
+    input  logic ISL,
+    input  logic rst,
+    
+    output logic OSL,
+    output logic [3:0] shift_rg
+    );
+
+    always_ff @(posedge clk) begin
+        if (rst) begin 
+            shift_rg <= 4'b0;
+            OSL <= 1'b0;
+        end 
+        else begin
+            if (en) begin 
+                shift_rg <= {shift_rg[2:0], ISL};
+                OSL <= shift_rg[3];
+            end 
+            else begin 
+                OSL <= 1'b0;
+                shift_rg <= shift_rg;
+            end
+        end
+    end
+    
+endmodule
