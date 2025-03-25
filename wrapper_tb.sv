@@ -34,11 +34,11 @@ module wrapper_tb();
    initial begin
       #20;
       BTNC <= 1;
-      #50;
+      #500;
       BTNC <= 0;
       #30;
    end
-  
+
 
    
    always begin
