@@ -40,6 +40,9 @@ module wrapper_tb();
          #30;  
          #2000;
       end
+      #20;
+      BTNC <= 1;
+      #3000;
       
    end
 
