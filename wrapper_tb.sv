@@ -32,12 +32,14 @@ module wrapper_tb();
    end
 
    initial begin
-      #20;
-      BTNC <= 1;
-      #1500;
-      BTNC <= 0;
-      #30;  
-      #2000;
+      for (int i = 0; i < 16; i++) begin
+         #20;
+         BTNC <= 1;
+         #1500;
+         BTNC <= 0;
+         #30;  
+         #2000;
+      end
       
    end
 
